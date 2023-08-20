@@ -11,8 +11,8 @@
   },
   "type": "module",
   "files": ["dist"],
-  "main": "./teac.cjs",
-  "module": "./teac.mjs",
+  "main": "./dist/teac.cjs",
+  "module": "./dist/teac.mjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
