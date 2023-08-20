@@ -1,0 +1,23 @@
+import './style.css';
+import { Teac, Lang } from './src/teac.min.mjs';
+let input = document.getElementById('greg');
+let num = document.getElementById('num');
+let yc = document.getElementById('yc');
+let yk = document.getElementById('yk');
+let yp = document.getElementById('yp');
+let sin = document.getElementById('sin');
+let texto = document.getElementById('texto');
+let today = new Date().toISOString().slice(0, 10);
+document.querySelector('#greg').value = today;
+const conversion = () => {
+  let e = input.value;
+  const sino = new Teac(e).sino(0);
+  num.innerText = JSON.stringify(new Teac(e).num());
+  yc.innerText = JSON.stringify(new Teac(e).yearIn('zh'));
+  yk.innerText = JSON.stringify(new Teac(e).yearIn('ko'));
+  yp.innerText = JSON.stringify(new Teac(e).yearIn('en'));
+  sin.innerText = JSON.stringify(sino);
+  texto.innerText = `${sino[0]}${sino[1]}${sino[2]}`;
+};
+conversion(today);
+input.addEventListener('change', conversion);

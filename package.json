@@ -1,0 +1,43 @@
+{
+  "name": "tea-calendar",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Convert Gregorian calendar date (1583-2100) to Chinese calendar date",
+  "exports": {
+    ".": {
+      "import": "./dist/teac.mjs",
+      "require": "./dist/teac.cjs"
+    }
+  },
+  "type": "module",
+  "files": ["dist"],
+  "main": "./teac.cjs",
+  "module": "./teac.mjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uranus-aqua/TEA-calendar.git"
+  },
+  "keywords": [
+    "calendar",
+    "conversion",
+    "Gregorian",
+    "Chinese"
+  ],
+  "author": "KUO Wei-Shiung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uranus-aqua/TEA-calendar/issues"
+  },
+  "homepage": "https://github.com/uranus-aqua/TEA-calendar#readme",
+  "dependencies": {
+    "debug": "^4.3.4"
+  }
+}
