@@ -42,9 +42,9 @@ export class Teac {
      * @returns {array}
      */
     static decompress(t, maxCode){
-        let a = t.split('&');
-        let dictionary = new Map();
-        let dictToArray = a[1].split('/');
+        const a = t.split('&');
+        const dictionary = new Map();
+        const dictToArray = a[1].split('/');
         dictToArray.forEach(e=>{
             dictionary.set(String.fromCodePoint(maxCode--), e);
         });
@@ -62,14 +62,14 @@ export class Teac {
      */
     static newYears = new Map();
     static setNewYears(){
-        let a = this.decompress(this.newYearsData, 80);
+        const a = this.decompress(this.newYearsData, 80);
         let y = 1584, v = 4;
         
         //TEAC's New Year day in 1583: 24 January
         this.newYears.set(y-1, 24);
         
         a.forEach(e=>{
-            let f = e === 'z'?20:Number(e) + 10;
+            const f = e === 'z'?20:Number(e) + 10;
             v += f < 15? -f: f;
             this.newYears.set(y++, v + 20);
         });
@@ -84,10 +84,10 @@ export class Teac {
      */
     static monthsLengthCode = new Array(6419);
     static setAllMonths(){
-        let dataString = this.decompress(this.moonData, 250);
-        let regulars = new Array(2439).fill([1, 0]).flat();
+        const dataString = this.decompress(this.moonData, 250);
+        const regulars = new Array(2439).fill([1, 0]).flat();
         this.monthsLengthCode = [...regulars];
-        let irregulars = dataString.map(e => parseInt(e, 32));           
+        const irregulars = dataString.map(e => parseInt(e, 32));           
         let position = 0;
         irregulars.forEach(e=> {
             position += e;
@@ -112,12 +112,12 @@ export class Teac {
      */
     static leaps = new Map();
     static setLeaps(){
-        let decompressed = this.decompress(this.leapsData, 75);
-        let y = 1580, len = decompressed.length;
+        const decompressed = this.decompress(this.leapsData, 75);
+        let y = 1580;
         decompressed.forEach((e, k)=>{
-            let v = parseInt(e, 32);
+            const v = parseInt(e, 32);
             //if v > 13, there's only one year separating it to the previous year having 13 months
-            let factor = v < 14?0:-1;
+            const factor = v < 14?0:-1;
             y += 3 + factor;
             //keep the key for calculate single year's months
             this.leaps.set(y, [k, v + 13 * factor]);
@@ -132,25 +132,25 @@ export class Teac {
      */
     static monthLadder = new Map();
     static getMonthLadder(y){
-        let m = this.monthLadder.get(y);
+        const m = this.monthLadder.get(y);
         if (m) return m;
         const leapsBefore = a =>{
             if (a === 1582) return 0;
-            let arr = [];
+            const arr = [];
             for (let i = 1; i < 4; i++){
-                let v = this.leaps.get(a - i);
+                const v = this.leaps.get(a - i);
                 v?arr.push(v[0]):null; 
             }
             return Math.max(...arr) + 1;
         };
-        let leap = this.leaps.get(y);
+        const leap = this.leaps.get(y);
         let monthNumber = (y - 1582) * 12;
         monthNumber += leap?leap[0]:leapsBefore(y);
-        let yearLength = leap?13:12;
-        let dataArray = this.monthsLengthCode.slice(monthNumber, monthNumber + yearLength);
+        const yearLength = leap?13:12;
+        const dataArray = this.monthsLengthCode.slice(monthNumber, monthNumber + yearLength);
         let days = 0;
         const monthsLengthOfTargetYear = (data, length) =>{
-            let a = new Array(length);
+            const a = new Array(length);
             data.forEach((e, k)=>{
                 days += 29 + Number(e);
                 a[k] = days;
@@ -158,7 +158,7 @@ export class Teac {
             this.monthLadder.set(y, a);
             return a;
         };
-        let a = monthsLengthOfTargetYear(dataArray, yearLength);
+        const a = monthsLengthOfTargetYear(dataArray, yearLength);
         return a;
     }
 
@@ -170,10 +170,10 @@ export class Teac {
      */
     static monthNames = new Map();
     static getMonthNames(y){
-        let r = this.monthNames.get(y);
+        const r = this.monthNames.get(y);
         if (r) return r;
-        let m = this.basicMonthNames.map(e=>e);
-        let leap = this.leaps.get(y);
+        const m = this.basicMonthNames.map(e=>e);
+        const leap = this.leaps.get(y);
         // insert the leap month, if there's one
         leap?m.splice(leap[1], 0, `${leap[1]}bis`):null;
         this.monthNames.set(y, m);
@@ -204,8 +204,8 @@ export class Teac {
      * @param {string} t
      * @returns {string}
      */
-    static async calc(t){
-        let d = new Date(t + 'T12:00:00.000Z');
+    static calc(t){
+        const d = new Date(t + 'T12:00:00.000Z');
         if (isNaN(d)) return 'N/A';
 
         //Gregorian Calendar's Year
@@ -215,22 +215,22 @@ export class Teac {
         if(y > 2100 || y < 1583) return 'N/A';
         
         //day number (the Gregorian Calendar's New Year day of the target year = 1)
-        let solarNewyear = new Date(`${y}-01-01T12:00:00.000Z`);
-        let solarYearDay = Math.floor((d - solarNewyear)/86400000) + 1;
+        const solarNewyear = new Date(`${y}-01-01T12:00:00.000Z`);
+        const solarYearDay = Math.floor((d - solarNewyear)/86400000) + 1;
 
         //TEAC's New Year: its day number according to the Gregorian Calendar
-        let newYear = this.newYears.get(y);
+        const newYear = this.newYears.get(y);
 
         //the target before or after the TEAC New Year
-        let tYearDay = solarYearDay - newYear + 1;
-        let applyPreviousYear = tYearDay < 1;
+        const tYearDay = solarYearDay - newYear + 1;
+        const applyPreviousYear = tYearDay < 1;
         y -= applyPreviousYear?1:0;
-        let kalends = this.getMonthLadder(y);
+        const kalends = this.getMonthLadder(y);
         let monthIndex, tMonth, tDay;
 
         if(applyPreviousYear){
-            let yearLength = kalends.length;
-            let lastMonthLenth = kalends[yearLength -1] - kalends[yearLength -2];
+            const yearLength = kalends.length;
+            const lastMonthLenth = kalends[yearLength -1] - kalends[yearLength -2];
             tDay = tYearDay + lastMonthLenth;
             monthIndex = tDay > 0?yearLength -1:yearLength -2;
             tDay = tDay > 0?tDay:tDay + kalends[yearLength -2] - kalends[yearLength -3];
@@ -246,11 +246,11 @@ export class Teac {
         tMonth = this.getMonthNames(y)[monthIndex];            
         
         //only the leap month's name is in string format, the others are numbers.  
-        let leap = typeof tMonth === 'string';
+        const leap = typeof tMonth === 'string';
         tMonth = leap?Number(tMonth.slice(0, -3)):tMonth;
 
         //the year number in the sexagenary cycle
-        let tYear = (y - 1563)%60||60;
+        const tYear = (y - 1563)%60||60;
 
         //the array for the output or the eventual translation
         this.result = [tYear, tMonth, tDay, leap];
@@ -283,7 +283,7 @@ export class Teac {
         this.setNewYears();
         this.setAllMonths();
         this.setLeaps();
-        this.basicMonthNames = Array.from({ length: 12 }, (v, i) => i + 1);
+        this.basicMonthNames = Array.from({ length: 12 }, (_v, i) => i + 1);
     }
 }
 /**
@@ -314,7 +314,7 @@ export class Lang{
         const d = new Date(y + 1983, 1);
         const options = { year: "numeric", calendar: "chinese" };
         const dateFormat = new Intl.DateTimeFormat(lang, options);
-        let t = dateFormat.formatToParts(d).filter(e => e.type === 'yearName')[0].value;
+        const t = dateFormat.formatToParts(d).filter(e => e.type === 'yearName')[0].value;
         this.yearString.set(`${lang}${y}`, t);
         return t;
     }
@@ -343,9 +343,9 @@ export class Lang{
      * @returns {string} e.g., ['癸卯', 2, 15, true]
      */
     static yearIn(lang){
-        let y = Teac.result[0];
-        let t = this.yearString.get(`${lang}${y}`)||this.setYearString(lang, y);
-        let r = Teac.result.with(0, t);
+        const y = Teac.result[0];
+        const t = this.yearString.get(`${lang}${y}`)||this.setYearString(lang, y);
+        const r = Teac.result.with(0, t);
         return r;
     }
 
@@ -360,11 +360,11 @@ export class Lang{
      */
     static sino(type = 0, literal = true){
         this.dayString.get(1)?null:this.setMonthDayString(Teac.result[3]);
-        let bis = ['閏','闰'];
-        let lit = ['年', '月'];
-        let y = `${this.yearIn('zh')[0]}${literal?lit[0]:''}`;
-        let m = `${Teac.result[3]?bis[type]:''}${this.monthString.get(Teac.result[1])}${literal?lit[1]:''}`;
-        let d = `${this.dayString.get(Teac.result[2])}`;
+        const bis = ['閏','闰'];
+        const lit = ['年', '月'];
+        const y = `${this.yearIn('zh')[0]}${literal?lit[0]:''}`;
+        const m = `${Teac.result[3]?bis[type]:''}${this.monthString.get(Teac.result[1])}${literal?lit[1]:''}`;
+        const d = `${this.dayString.get(Teac.result[2])}`;
         return [y, m, d];
     }
 }       

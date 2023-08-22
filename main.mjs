@@ -1,16 +1,16 @@
 import './style.css';
 import { Teac, Lang } from './src/teac.min.mjs';
-let input = document.getElementById('greg');
-let num = document.getElementById('num');
-let yc = document.getElementById('yc');
-let yk = document.getElementById('yk');
-let yp = document.getElementById('yp');
-let sin = document.getElementById('sin');
-let texto = document.getElementById('texto');
-let today = new Date().toISOString().slice(0, 10);
+const input = document.getElementById('greg');
+const num = document.getElementById('num');
+const yc = document.getElementById('yc');
+const yk = document.getElementById('yk');
+const yp = document.getElementById('yp');
+const sin = document.getElementById('sin');
+const texto = document.getElementById('texto');
+const today = new Date().toISOString().slice(0, 10);
 document.querySelector('#greg').value = today;
 const conversion = () => {
-  let e = input.value;
+  const e = input.value;
   const sino = new Teac(e).sino(0);
   num.innerText = JSON.stringify(new Teac(e).num());
   yc.innerText = JSON.stringify(new Teac(e).yearIn('zh'));
@@ -21,3 +21,4 @@ const conversion = () => {
 };
 conversion(today);
 input.addEventListener('change', conversion);
+console.log(Lang.dayString);
