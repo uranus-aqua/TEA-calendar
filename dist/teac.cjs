@@ -1,2 +1,5 @@
-let { Teac, Lang} = await import('./teac.min.mjs');
-module.exports = { Teac, Lang};
+(async () => {
+    let { Teac, Lang} = await import('./teac.min.mjs');
+    exports.Teac = Teac;
+    exports.Lang = Lang;
+})();
