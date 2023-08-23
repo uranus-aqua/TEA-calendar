@@ -1,5 +1,5 @@
 (async () => {
-    let { Teac, Lang} = await import('./teac.min.mjs');
+    const { Teac, Lang} = await import('./teac.mjs');
     exports.Teac = Teac;
     exports.Lang = Lang;
 })();
