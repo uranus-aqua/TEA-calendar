@@ -1,8 +1,8 @@
 {
   "name": "tea-calendar",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
-  "description": "Convert Gregorian calendar date (1583-2100) to Chinese calendar date",
+  "description": "Pragmatically convert Gregorian calendar date (1583-2100) to Chinese calendar date",
   "exports": {
     ".": {
       "import": "./dist/teac.mjs",
