@@ -36,7 +36,7 @@ const options = {year: 'numeric', month: 'numeric', day: 'numeric' };
 const dateFormat = new Intl.DateTimeFormat('fr-CA-u-ca-chinese', options);
 let output = dateFormat.format(date);
 //output in Chrome as well as in Firefox: "2/10/35".
-//In reality, the corresponding date should be "1/10/35".
+//In reality, the corresponding date is "1/10/35".
 ```
 
 
