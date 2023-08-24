@@ -38,7 +38,7 @@ let output = dateFormat.format(date);
 //output in Chrome as well as in Firefox: "2/10/35".
 //In reality, the corresponding date is "1/10/35".
 ```
-
+`Note` About the correct conversion of the date above, cf., for example, the [conversion table 2011-2020](https://web.archive.org/web/20230824102033/https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvNDM5L3JlbGZpbGUvNDc1NTcvNzk3MDY5OS9mODNkY2RmOC00NDY2LTQ5MzktYjQ2Mi1kMjg3N2JlNzQzOWQucGRm&n=5ZyL6L6y5puGMjAxMS0yMDIwLnBkZg%3D%3D&icon=..pdf) published by the Taipei Astronomical Museum or the [*Gregorian-Lunar Calendar Conversion Table 2018*](https://web.archive.org/web/20230824104025/https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2018e.pdf) of Hong Kong Observatory
 
 
 ## Usage
