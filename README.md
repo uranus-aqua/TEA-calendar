@@ -31,7 +31,7 @@ This pure JavaScript program converts any Gregorian calendar date of the period 
 ```js
 
 //conversion wiht the JavaScript's Standard built-in objects
-const date = new Date(2018, 10, 8);
+const date = new Date('2018-11-08T12:00:00.000');
 const options = {year: 'numeric', month: 'numeric', day: 'numeric' };
 const dateFormat = new Intl.DateTimeFormat('fr-CA-u-ca-chinese', options);
 let output = dateFormat.format(date);
