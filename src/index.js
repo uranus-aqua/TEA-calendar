@@ -1,3 +1,4 @@
 export {
-    Teac, Lang
+    Teac, 
+    Lang
 } from "./teac.min.js";
