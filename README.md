@@ -125,6 +125,7 @@ const d = new Teac('2025-07-28').sino(0, false);
 ## License
 
 Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
 ## Author
 

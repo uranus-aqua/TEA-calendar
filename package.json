@@ -15,8 +15,8 @@
     "src"
   ],
   "main": "./dist/teac.cjs",
-  "jsdelivr": "dist/teac.min.js",
-  "unpkg": "dist/teac.min.js",
+  "jsdelivr": "./dist/teac.min.js",
+  "unpkg": "./dist/teac.min.js",
   "module": "./dist/teac.mjs",
   "scripts": {
     "dev": "vite",
