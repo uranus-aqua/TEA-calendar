@@ -11,7 +11,7 @@
   },
   "type": "module",
   "files": [
-    "dist"
+    "dist", "src"
   ],
   "main": "./dist/teac.cjs",
   "jsdelivr": "dist/teac.min.js",
