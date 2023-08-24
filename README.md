@@ -26,7 +26,7 @@
 
 ## About the Project
 
-This pure JavaScript program converts any Gregorian calendar date of the period **1583-2100** to its corresponding Chinese calendar date. It is designed to be an alternative to the conversion via the JavaScript's Standard built-in objects, which is not always reliable for the real-world usage (*cf.* the code example below) and rather difficult to be adjusted to the existing Chinese calendar without loss of efficiency.  
+This pure JavaScript program converts any Gregorian calendar date of the period **1583-2100** to its corresponding Chinese calendar date. It is designed to be an alternative to the conversion via the JavaScript's Standard built-in objects, which is not always reliable for the real-world usage (*cf.* the code example below or [this codepen](https://codepen.io/kws/pen/BaGjaPj)) and rather difficult to be adjusted to the existing Chinese calendar without loss of efficiency.  
 
 ```js
 
