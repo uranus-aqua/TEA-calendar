@@ -4,7 +4,7 @@
     <img src="banner.png" alt="Logo" width="80" height="80">
   </a>
 </p>
-<h3 text-align="center">TEA Calendar</h3>
+<h1 text-align="center">TEA Calendar</h1>
 
 <p text-align="center">
     Pragmatically convert Gregorian calendar date of the period 1583-2100 to Chinese Calendar date
