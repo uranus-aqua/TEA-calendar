@@ -15,6 +15,7 @@ export default defineConfig(({ command, mode }) => {
     build: {
         entry: resolve(__dirname, 'lib/main.mjs'),
         name: 'tea-calendar',
+        sourcemap: true,
         fileName: 'teac',
     },
   }
