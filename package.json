@@ -21,7 +21,8 @@
   "module": "./dist/teac.mjs",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --force",
+    "build:external": "babel src -d div/babel --source-maps",
     "preview": "vite preview",
     "test": "nyc --reporter=html --reporter=text mocha './test/*.test.*js' --reporter doc --timeout=12000"
   },
