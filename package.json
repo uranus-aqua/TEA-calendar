@@ -4,10 +4,7 @@
   "version": "1.0.6",
   "description": "Pragmatically convert Gregorian calendar date (1583-2100) to Chinese calendar date",
   "exports": {
-    ".": {
-      "import": "./src/index.js",
-      "require": "./dist/teac.cjs"
-    },
+    ".": "./dist/teac.min.js",
     "./package.json": "./package.json"
   },
   "type": "module",
@@ -15,14 +12,12 @@
     "dist",
     "src"
   ],
-  "main": "./dist/teac.cjs",
   "jsdelivr": "./dist/teac.min.js",
   "unpkg": "./dist/teac.min.js",
-  "module": "./dist/teac.mjs",
+  "module": "./dist/teac.min.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build --force",
-    "build:external": "babel src -d div/babel --source-maps",
     "preview": "vite preview",
     "test": "nyc --reporter=html --reporter=text mocha './test/*.test.*js' --reporter doc --timeout=12000"
   },
@@ -47,12 +42,11 @@
   "author": "KUO Wei-Shiung",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uranus-aqua/TEA-calendar/issues"
+    "url": "https://github.com/uranus-aqua/tea-calendar/issues"
   },
-  "homepage": "https://github.com/uranus-aqua/TEA-calendar#readme",
+  "homepage": "https://github.com/uranus-aqua/tea-calendar#readme",
   "dependencies": {
-    "debug": "^4.3.4",
-    "esm": "^3.2.25"
+    "debug": "^4.3.4"
   },
   "directories": {
     "lib": "lib",
