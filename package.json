@@ -4,7 +4,8 @@
   "version": "1.0.8",
   "description": "Pragmatically convert Gregorian calendar date (1583-2100) to Chinese calendar date",
   "exports": {
-    ".": "./dist/teac.min.js"
+    "import": "./dist/teac.js",
+    "require": "./dist/teac.umd.cjs"
   },
   "type": "module",
   "files": [
