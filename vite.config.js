@@ -1,35 +1,43 @@
 import { resolve } from 'path';
 import { defineConfig } from "vite";
+import { terser } from 'rollup-plugin-terser';
 
 export default defineConfig({
+  minify: 'terser',
   build: {
     lib: {
-      // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, 'lib/main.js'),
-      name: 'teac-calendar',
-      // the proper extensions will be added
+      entry: resolve(__dirname, 'lib/teac.min.js'),
+      name: 'tea-calendar',
+      format: 'es',
       fileName: 'teac',
     },
+    target: 'modules',
+    modulePreload: false,
+    sourcemap: true,
+    minify: 'terser',
     watch:{
       exclude: 'node_modules/**'
     },
-    rollupOptions: {
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
-      input: './src/teac.min.js',
-      output: 
-        // Provide global variables to use in the UMD build
-        // for externalized deps
-        { 
-          dir: 'dist',
-          format: "es",
-          compact: false,
-          minifyInternalExports: false,
-          sourcemap: true
-         },
-      treeshake: {
-        preset: 'safest'
-      }
+    terserOptions:{
+      format: {
+        comments: false,
+      },      
+      ecma: 2016,
+      mangle: false      
+    },
+    rollupOptions: { 
+      plugins: [terser({
+        format: {
+          comments: false,          
+        }
+      })],
+      output:{
+        dir: 'dist',
+        format: 'es',
+        preserveModules: false,
+        inlineDynamicImports: false
+      },
+      preserveEntrySignatures: 'strict'
     },
   },
-})
+});

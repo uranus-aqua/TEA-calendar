@@ -29,7 +29,6 @@
 This pure JavaScript program converts any Gregorian calendar date of the period **1583-2100** to its corresponding Chinese calendar date. It is designed to be an alternative to the conversion via the JavaScript's Standard built-in objects, which is not always reliable for the real-world usage (*cf.* the code example below or [this codepen](https://codepen.io/kws/pen/BaGjaPj)) and rather difficult to be adjusted to the existing Chinese calendar without loss of efficiency.  
 
 ```js
-
 //conversion wiht the JavaScript's Standard built-in objects
 const date = new Date('2018-11-08T12:00:00.000');
 const options = {year: 'numeric', month: 'numeric', day: 'numeric' };
@@ -38,17 +37,24 @@ let output = dateFormat.format(date);
 //output in Chrome as well as in Firefox: "2/10/35".
 //In reality, the corresponding date is "1/10/35".
 ```
+
 `Note` About the correct conversion of the date above, cf., for example, the [conversion table 2011-2020](https://web.archive.org/web/20230824102033/https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvNDM5L3JlbGZpbGUvNDc1NTcvNzk3MDY5OS9mODNkY2RmOC00NDY2LTQ5MzktYjQ2Mi1kMjg3N2JlNzQzOWQucGRm&n=5ZyL6L6y5puGMjAxMS0yMDIwLnBkZg%3D%3D&icon=..pdf) published by the Taipei Astronomical Museum or the [*Gregorian-Lunar Calendar Conversion Table 2018*](https://web.archive.org/web/20230824104025/https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2018e.pdf) of Hong Kong Observatory.
 
-
 ## Usage
+
+### Installation
+
+```shell
+# npm
+npm i tea-calendar
+```
 
 ### Basic conversion
 
 * import the core module:
 
 ```js
-import {Teac} from 'teac.js'
+import {Teac} from '/PATH/TO/teac.js'
 ```
 
 - input a Gregorian Calendar date `string` in "YYYY-MM-DD" format to get an `array` of four elements:
