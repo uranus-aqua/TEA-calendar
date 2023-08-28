@@ -1,4 +1,4 @@
-import  {Teac} from '../dist/teac.mjs';
+import  {Teac} from '../dist/teac.js';
 import {describe, it} from 'mocha';
 import assert from 'assert';
 
