@@ -12,9 +12,9 @@
     "dist",
     "src"
   ],
-  "jsdelivr": "./dist/teac.min.js",
-  "unpkg": "./dist/teac.min.js",
-  "module": "./dist/teac.min.js",
+  "jsdelivr": "./dist/teac.js",
+  "unpkg": "./dist/teac.js",
+  "module": "./dist/teac.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build --force",
