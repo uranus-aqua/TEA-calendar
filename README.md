@@ -139,4 +139,4 @@ Distributed under the MIT License. See [LICENSE](./LICENSE) for more information
 
 ## Acknowledgements
 
-* Calendrical data from Professor Yuk Tung Liu's [Conversion between Western and Chinese Calendar (722 BCE — 2200 CE)](https://ytliu0.github.io/ChineseCalendar/index.html), one of the bestS, if not the best source now published.
+* Calendrical data from Professor Yuk Tung Liu's [Conversion between Western and Chinese Calendar (722 BCE — 2200 CE)](https://ytliu0.github.io/ChineseCalendar/index.html), one of the best, if not the best source now published.
