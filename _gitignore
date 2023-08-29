@@ -17,6 +17,7 @@ dist-ssr
 .vscode/*
 .nyc_output/*
 coverage
+coverage/*
 !.vscode/extensions.json
 .idea
 .DS_Store
