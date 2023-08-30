@@ -1,6 +1,9 @@
 {
   "name": "tea-calendar",
   "private": false,
+  "publishConfig": { 
+    "registry":"https://npm.pkg.github.com"
+  },
   "version": "1.2.2",
   "description": "Pragmatically convert Gregorian calendar date (1583-2100) to Chinese calendar date",
   "exports": {
@@ -19,14 +22,9 @@
   "module": "./dist/teac.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --force",
+    "build": "vite build --mode production --force",
     "preview": "vite preview",
     "test": "nyc --reporter=html --reporter=text mocha './test/*.test.*js' --reporter doc --timeout=12000"
-  },
-  " ": {
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0",
-    "vite": "^4.4.9"
   },
   "repository": {
     "type": "git",
