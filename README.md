@@ -20,6 +20,8 @@
 
 - [Usage](#usage)
 
+- [Limitations](#limitations)
+
 - [License](#license)
 
 - [Acknowledgements](#acknowledgements)
@@ -51,38 +53,72 @@ npm i tea-calendar
 
 ### Basic conversion
 
-* import the core module:
+#### 1. import the core module:
+
+- local import:
 
 ```js
-import {Teac} from '/PATH/TO/teac.js'
+import {Teac} from '/PATH/TO/teac.min.js'
 ```
 
-- input a Gregorian Calendar date `string` in "YYYY-MM-DD" format to get an `array` of four elements:
-  
-  - number of the year in the sexagenary cycle,
-  
-  - lunar month number,
-  
-  - day number,
-  
-  - Boolean value for leap month (`true`: leap month)
+- remote import from jsdelivr:
+
+```js
+ import {Teac} from 'https://cdn.jsdelivr.net/npm/tea-calendar/src/teac.min.js'
+```
+
+- remote import from unpkg:
+
+```js
+ import {Teac} from 'https://unpkg.com/tea-calendar/src/teac.min.js'
+```
+
+- remote import from esm.sh:
+
+```js
+ import {Teac} from 'https://esm.sh/tea-calendar'
+```
+
+- remote import from skypack:
+
+```js
+ import {Teac} from 'https://cdn.skypack.dev/pin/tea-calendar@v1.2.2-52FdYM1pHS1geiE67Q2Z/mode=imports,min/optimized/tea-calendar.js'
+```
+
+- remote import from deno.land:
+
+```js
+ import {Teac} from 'https://deno.land/x/tea_calendar/teac.min.js'
+```
+
+`Note` a [Deno version](https://deno.land/x/tea_calendar) with identical core codes is also [published in GitHub](https://github.com/uranus-aqua/tea-calendar-with-deno).
+
+#### 2. input a Gregorian Calendar date `string` in "YYYY-MM-DD" format to get an `array` of four elements:
+
+- number of the year in the sexagenary cycle,
+
+- lunar month number,
+
+- day number,
+
+- Boolean value for leap month (`true`: leap month)
 
 ```js
 const date = new Teac('2025-07-28').num();
 // Expected output: [42, 6, 4, true] 
 ```
 
-`Note` In order to avoid the impact of time zone setting of the device (or the network), this program uses the UTC and the 12:00:00 GMT+00:00 for each input date. For example, the string '2023-04-04'  is converted to "2023-04-04T12:00:00.000Z" before the construction of the corresponding JavaScript Date object.
+`Note` In order to avoid the impact of time zone setting of the device (or the network), this program uses the UTC and the 12:00:00 GMT+00:00 for each input date. For example, the string '2023-04-04' is converted to "2023-04-04T12:00:00.000Z" before the construction of the corresponding JavaScript Date object.
 
 ### i18n
 
-Firstly, import the linguistic module `Lang` with the core module:
+##### 1. import the linguistic module `Lang` with the core module (for the CDN links, see above):
 
 ```js
-import {Teac, Lang} from './Teac.js'
+import {Teac, Lang} from '/PATH/TO/Teac.js'
 ```
 
-##### Output the sexagenary years in string format
+##### 2a. output the sexagenary years in string format
 
 - in Chinese:
 
@@ -105,9 +141,11 @@ const d = new Teac('2025-07-28').yearIn('en');
 // Expected output: ['yi-si', 6, 4, true] 
 ```
 
-##### Output entirely in text format
+`Note`  Any ISO 639-1 codes other than `ko` and `zh` could replace the `en` here. In other words, `de`, `fr`, `nl` are  valid and all produce the same output. 
 
-- in Traditional Chinese:
+##### 2b. Output entirely in text format
+
+- in traditional Chinese:
 
 ```js
 const d = new Teac('2025-07-28').sino(0)
@@ -128,9 +166,12 @@ const d = new Teac('2025-07-28').sino(0, false);
 // Expected output: ['乙巳', "閏六', '初四']
 ```
 
+## Limitations
+
+Due to their closeness to the midnight, the 9th new moon of 2057, the 8th new moon of 2089 and the 7th one of 2097 may have a discrepancy of one day. Any prospective conversion concerning these dates is subject to adjustment and this program is of no exception.
+
 ## License
 
-Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
 ## Author
