@@ -1,10 +1,10 @@
 {
   "name": "tea-calendar",
   "private": false,
-  "publishConfig": { 
-    "registry":"https://npm.pkg.github.com"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Pragmatically convert Gregorian calendar date (1583-2100) to Chinese calendar date",
   "exports": {
     "import": "./dist/teac.js",
@@ -62,5 +62,5 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "license" : "MIT"
+  "license": "MIT"
 }
