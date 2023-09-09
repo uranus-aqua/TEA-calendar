@@ -64,7 +64,7 @@ It is more pragmatic to use only the data collected from the existing calendars 
   | [30 consecutive days](img/performance_30.png)   | 37K ops      | 1.7K ops                 |
   | [365 consecutive days](img/performance_365.png) | 3.2K ops     | 143 ops                  |
   
-  `Note` Although demonstrating a narrower gap, the outcome of another test, which utilizes the Performance API and runs on localhost, essentially corroborates the findings shown above.
+  `Note` Although demonstrating a narrower gap, the outcome of [another test](img/conversion_performance.png), which utilizes the Performance API and runs on localhost, essentially corroborates the findings shown above.
 
 ## Usage
 
